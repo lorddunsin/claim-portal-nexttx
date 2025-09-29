@@ -1,0 +1,41 @@
+[
+  {
+    "claimID": "CID123",
+    "Device": "HP EliteBook 8460p",
+    "issue": "Screen crack",
+    "date": "10/10/2025",
+    "time": "3:12:00pm",
+    "status": "Pending",
+    "type": "Hardware",
+    "value": "$1200",
+    "cause": "Accidental Damage",
+    "puchasedate": "10/10/2020",
+    "serial": "SN123456789"
+  },
+  {
+    "claimID": "CID456",
+    "Device": "Dell XPS 15",
+    "issue": "Faulty keyboard",
+    "date": "11/10/2025",
+    "time": "2:10:00pm",
+    "status": "In Progress",
+    "type": "Laptop",
+    "value": "$1500",
+    "cause": "Manufacturing Defect",
+    "puchasedate": "11/10/2021",
+    "serial": "SN987654321"
+  },
+  {
+    "claimID": "CID789",
+    "Device": "MacBook Pro",
+    "issue": "Battery not charging",
+    "date": "12/10/2025",
+    "time": "1:15:00pm",
+    "status": "Resolved",
+    "type": "Laptop",
+    "value": "$2000",
+    "cause": "Wear and Tear",
+    "puchasedate": "12/10/2019",
+    "serial": "SN112233445"
+  }
+]
