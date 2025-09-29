@@ -10,12 +10,21 @@ export default function Home() {
   const params = useParams<{ claimId: string }>();
   const claimID = params.claimId;
 
+  // ✅ Hooks must always be called before any conditional return
+  const [messages, setMessages] = useState([
+    { sender: "insurer", text: "Hello, please upload your supporting documents." },
+    { sender: "user", text: "Okay, I’ll upload them soon." },
+    { sender: "insurer", text: "Please provide the documents as soon as possible." },
+  ]);
+  const [newMessage, setNewMessage] = useState("");
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+
   // ✅ Case-insensitive lookup
   const claim: Claim | undefined = claims.find(
     (item) => item.claimID.toLowerCase() === claimID.toLowerCase()
   );
 
-  // ✅ If claim not found
+  // ✅ If claim not found (safe because hooks already declared)
   if (!claim) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -23,17 +32,6 @@ export default function Home() {
       </div>
     );
   }
-
-  // ✅ Chat state
-  const [messages, setMessages] = useState([
-    { sender: "insurer", text: "Hello, please upload your supporting documents." },
-    { sender: "user", text: "Okay, I’ll upload them soon." },
-    { sender: "insurer", text: "Please provide the documents as soon as possible." },
-  ]);
-  const [newMessage, setNewMessage] = useState("");
-
-  // ✅ File upload state
-  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
 
   const handleSend = () => {
     if (!newMessage.trim()) return;
